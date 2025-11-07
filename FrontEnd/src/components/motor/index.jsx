@@ -8,7 +8,8 @@ export default function CruiseForm() {
   const [formData, setFormData] = useState({
     destino: "",
     navio: "",
-    data: null,
+    dataFim: null,
+    dataInicio: null,
   });
 
   const handleChange = (field, value) => {
@@ -16,7 +17,16 @@ export default function CruiseForm() {
   };
 
   const handleSubmit = () => {
-    console.log("Orçamento:", formData);
+
+    const obj ={
+      ...formData,
+      dataInicio: formData.dataInicio ? formData.dataInicio.toISOString() : null,
+      dataFim: formData.dataFim ? formData.dataFim.toISOString() : null,
+      navio: formData.navio || "",
+      destino: formData.destino || "",
+    };
+
+    console.log("Orçamento:", obj);
     alert("Buscando saídas...");
   };
 
@@ -88,7 +98,7 @@ export default function CruiseForm() {
                 calendarClassName="custom-calendar"
                 popperClassName="custom-datepicker-popper"
                 showMonthYearPicker
-              />
+                />
             </div>
           </div>
         </div>
