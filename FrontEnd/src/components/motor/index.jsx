@@ -72,19 +72,27 @@ export default function CruiseForm() {
             <label className="motor-label">SAÍDA EM</label>
             <div className="datepicker-wrapper">
               <DatePicker
-                selected={formData.data}
-                onChange={(date) => handleChange("data", date)}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="dd/mm/aaaa"
+                selectsRange
+                startDate={formData.dataInicio}
+                endDate={formData.dataFim}
+                onChange={([start, end]) => {
+                  setFormData(prev => ({
+                    ...prev,
+                    dataInicio: start,
+                    dataFim: end
+                  }));
+                }}
+                dateFormat="MM/yyyy"
+                placeholderText="mm/aaaa - mm/aaaa"
                 className="motor-datepicker"
-                popperClassName="custom-datepicker-popper"
                 calendarClassName="custom-calendar"
+                popperClassName="custom-datepicker-popper"
+                showMonthYearPicker
               />
             </div>
           </div>
         </div>
 
-        {/* BOTÃO */}
         <button className="motor-button" onClick={handleSubmit}>
           Ver Saídas
         </button>

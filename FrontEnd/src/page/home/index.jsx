@@ -1,6 +1,4 @@
 import Navbar from "../../components/navbar";
-import bannerDesk from "../../assets/Azamara-banner-desk.webp";
-import bannerMobile from "../../assets/banner-Mobile-azamara.webp";
 import "./Home.css";
 import CruiseForm from "../../components/motor"
 import CruiseOffersSection from "../../components/promocoes"
@@ -10,21 +8,24 @@ import DestinyCruiseSection from "../../components/DestinyCarousel"
 import Footer from "../../components/Footer"
 import StickyFooter from "../../components/StickyFooter"
 
+import bannerDesk from "../../assets/Banners/banner-Desktop-azamara.webp";
+import bannerMobile from "../../assets/Banners/banner-Mobile-azamara.webp";
+
 export default function Home() {
   return (
     <>
       <Navbar />
 
       <section className="hero-banner">
-        <picture>
+        <picture className="banners">
           <source media="(max-width: 768px)" srcSet={bannerMobile} />
           <img src={bannerDesk} alt="Banner principal" />
         </picture>
 
         <div className="hero-content">
-          {/* <h1>Cruzeiros Royal Caribbean</h1>
-          <p>Momentos inesquecíveis a bordo dos maiores navios do mundo</p> */}
-          {/* <button>Solicitar Orçamento</button> */}
+          <h1>Cruzeiros Azamara Cruises</h1>
+          <p>Viaje além do itinerário. Viva o destino.</p>
+          <button className="hero-button">Solicitar Orçamento</button>
         </div>
 
         <CruiseForm />

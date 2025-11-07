@@ -17,7 +17,7 @@ export default function AzamaraSection() {
         </div>
 
         {/* Lado do texto */}
-        <div className="Azamara-content">
+        <div className="Azamara-content" id="quem-somos">
           <span className="Azamara-subtitle">A MELHOR EXPERIÊNCIA</span>
           <h2 className="Azamara-title">Azamara Cruises</h2>
 

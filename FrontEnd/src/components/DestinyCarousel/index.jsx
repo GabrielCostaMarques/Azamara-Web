@@ -9,11 +9,23 @@ const DestinyCruiseSection = () => {
     const trackRef = useRef(null);
 
     const ships = [
-        { id: 'Caribe', title: 'Caribe', image: 'https://manualdoagente.com.br/wp-content/uploads/2025/07/Caribe.webp', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/star-of-the-seas/' },
-        { id: 'Asia', title: 'Asia', image: 'https://manualdoagente.com.br/wp-content/uploads/2025/07/Asia.webp', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/icon-of-the-seas/' },
-        { id: 'Atlantico', title: 'Atlantico', image: 'https://manualdoagente.com.br/wp-content/uploads/2025/07/Atlantic.webp', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/utopia-of-the-seas/' },
-        { id: 'Atlantico2', title: 'Atlantico', image: 'https://manualdoagente.com.br/wp-content/uploads/2025/07/Atlantic.webp', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/utopia-of-the-seas/' },
+        { Destination: "CARIBBEAN", title: "Caribe", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/Caribe.webp" },
+        { Destination: "EASTERN CARIBBEAN", title: "Caribe Oriental", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/EASTERN-CARIBBEAN.webp" },
+        { Destination: "ASIA", title: "Ásia", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/Asia.webp" },
+        { Destination: "ATLANTIC", title: "Atlântico", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/Atlantic.webp" },
+        { Destination: "SOUTH AMERICA", title: "América do Sul", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/south-america.webp" },
+        { Destination: "MEDITERRANEAN", title: "Mediterrâneo", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/mediterran-Azamara.webp" },
+        { Destination: "ALASKA", title: "Alasca", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/Alaska.webp" },
+        { Destination: "BERMUDA", title: "Bermudas", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/US-SE-COAST.webp" },
+        { Destination: "TRANSATLANTIC", title: "Transatlântico", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/Grand-voyage-combo.webp" },
+        { Destination: "WESTERN EUROPE", title: "Europa Ocidental", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/WESTERN-EUROPE.webp" },
+        { Destination: "SOUTH PACIFIC", title: "Pacífico Sul", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/South-Pacific.webp" },
+        { Destination: "US GULF", title: "Golfo dos EUA", image: "https://manualdoagente.com.br/wp-content/uploads/QS_QS280322_011.jpg" },
+        { Destination: "SOUTHERN CARIBBEAN", title: "Caribe do Sul", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/SOUTHERN-CARIBBEAN.webp" },
+        { Destination: "INDONESIA", title: "Indonésia", image: "https://manualdoagente.com.br/wp-content/uploads/Indonesia_Bali_002.jpg" },
+        { Destination: "AFRICA", title: "África", image: "https://manualdoagente.com.br/wp-content/uploads/2025/07/Africa.webp" },
     ];
+
 
     const totalCards = ships.length;
 
@@ -56,7 +68,7 @@ const DestinyCruiseSection = () => {
 
     return (
         <section className="destiny-section">
-            <div className="rc-background"></div>
+            <div className="rc-background" id="destinos"></div>
 
             <div className="destiny-container">
                 <div className="destiny-full-content">
@@ -76,7 +88,7 @@ const DestinyCruiseSection = () => {
                                     <div
                                         key={ship.id}
                                         className="rc-carousel-card"
-                                        onClick={() => window.open(ship.url, '_blank')}
+                                    // onClick={() => window.open(ship.url, '_blank')}
                                     >
                                         <img src={ship.image} alt={ship.title} className="rc-card-image" />
                                         <div className="rc-card-overlay">

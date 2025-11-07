@@ -453,11 +453,11 @@
 
   @media (max-width: 1024px) {
       .offer-card {
-          flex: 0 0 calc(50% - 7.5px) !important;
+          flex: 0 0 calc(50% - 7.5px);
       }
 
-      .price-info{
-        place-items: center;
+      .price-info {
+          place-items: center;
       }
 
       .price-row {
@@ -471,6 +471,10 @@
       .discount-badge {
           text-align: CENTER;
       }
+
+      .section-header h2 {
+          font-size: 1.9rem;
+      }
   }
 
   /* Mobile: 1 card com deslize */
@@ -479,9 +483,18 @@
           padding: 0 40px;
       }
 
+      .carousel-btn.prev {
+          left: 10px;
+      }
+
+      .carousel-btn.next {
+          right: 10px;
+      }
+
       .offer-card {
           flex: 0 0 100%;
-          max-width: 300px;
+          width: 100%;
+          max-width: 300px !important;
           margin: 0 auto;
       }
 
@@ -492,11 +505,11 @@
       }
 
       .buttons-promo {
-        align-items: center;
+          align-items: center;
 
-        button{
-            font-size: 0.8rem;
-        }
+          button {
+              font-size: 0.7rem;
+          }
       }
 
       .carousel-dots {

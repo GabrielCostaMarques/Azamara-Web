@@ -80,7 +80,7 @@
 }
 
 .rc-carousel-card {
-  flex: 0 0 300px;
+  flex: 0 0 280px;
   height: 520px;
   border-radius: 16px;
   overflow: hidden;
@@ -192,7 +192,7 @@
   }
 
   .rc-carousel-card {
-    flex: 0 0 250px;
+    flex: 0 0 280px;
     height: 420px;
   }
 
@@ -211,7 +211,7 @@
   }
 
   .rc-carousel-card {
-    flex: 0 0 calc(100% - 40px);
+    flex: 0 0 calc(100% - 17px);
     max-width: 350px;
     height: 600px;
     margin: 0 auto;

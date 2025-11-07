@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import './RoyalCruiseSection.css';
 import AzamaraLogo from "../../assets/Azamara-White.png";
+import PursuitImg from "../../assets/Navios/Azamara-pursuit.webp"
+import JourneyImg from "../../assets/Navios/Azamara-journey.webp"
+import OnwardImg from "../../assets/Navios/Azamara-Onward.webp"
+import QuestImg from "../../assets/Navios/Azamara-Quest.webp"
 
 const RoyalCruiseSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -10,10 +14,10 @@ const RoyalCruiseSection = () => {
   const trackRef = useRef(null);
 
   const cruiseShips = [
-    { id: 'Pursuit', title: 'Azamara Pursuit', port: '', image: 'https://www.shoppingdecruzeiros.com.br/wp-content/uploads/2024/09/star-of-the-seas-aft-sailing-night-time-up-copiar.webp?id=38319', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/star-of-the-seas/' },
-    { id: 'Journey', title: 'Azamara Journey', port: '', image: 'https://www.shoppingdecruzeiros.com.br/wp-content/uploads/2024/09/icon-of-the-seas-aerial-aft-night-copiar.webp?id=38318', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/icon-of-the-seas/' },
-    { id: 'Onward', title: 'Azamara Onward', port: '', image: 'https://www.shoppingdecruzeiros.com.br/wp-content/uploads/2024/09/utopia-of-the-seas-sunseet-sailing-portrait-new-copiar.webp?id=38316', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/utopia-of-the-seas/' },
-    { id: 'Quest', title: 'Azamara Quest', port: '', image: 'https://www.shoppingdecruzeiros.com.br/wp-content/uploads/2024/09/utopia-of-the-seas-sunseet-sailing-portrait-new-copiar.webp?id=38316', url: 'https://shoppingdecruzeiros.com.br/cruise_ships/utopia-of-the-seas/' },
+    { id: 'Pursuit', title: 'Azamara Pursuit', port: '', image: PursuitImg, url: '' },
+    { id: 'Journey', title: 'Azamara Journey', port: '', image: JourneyImg , url: '' },
+    { id: 'Onward', title: 'Azamara Onward', port: '', image: OnwardImg, url: '' },
+    { id: 'Quest', title: 'Azamara Quest', port: '', image: QuestImg, url: '' },
   ];
 
   const totalCards = cruiseShips.length;
@@ -58,7 +62,7 @@ const RoyalCruiseSection = () => {
 
   return (
     <section className="rc-section">
-      <div className="rc-background"></div>
+      <div className="rc-background" id='navios'></div>
 
       <div className="rc-container">
         <div className="rc-logo">
@@ -91,7 +95,7 @@ const RoyalCruiseSection = () => {
                   <div
                     key={ship.id}
                     className="rc-carousel-card"
-                    onClick={() => window.open(ship.url, '_blank')}
+                    // onClick={() => window.open(ship.url, '_blank')}
                   >
                     <img src={ship.image} alt={ship.title} className="rc-card-image" />
                     <div className="rc-card-overlay">

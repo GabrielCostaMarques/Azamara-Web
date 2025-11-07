@@ -1,59 +1,60 @@
 import { Calendar, Ship, ChevronLeft, ChevronRight, X, MapPin, Anchor } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import SidebarForm from "./Sidebarform";
 import "./promo.css";
 
-const cruiseOffers = [ {
-    id: 1,
-    image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
-    category: "CARIBE",
-    title: "7 NIGHT EASTERN CARIBBEAN & PERFECT DAY",
-    departure: "Sáb., 10 Outubro 2026",
-    ship: "Icon of the Seas",
-    installments: "Em 10x de",
-    priceX: "R$ 914,12",
-    price: "R$ 9.141",
-    discount: "SEM ENTRADA",
-    taxes: "Sem entrada e em até 10x sem juros"
-  },
-  {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
-    category: "CARIBE",
-    title: "4 NIGHT EASTERN CARIBBEAN CRUISE",
-    departure: "Qui., 28 Janeiro 2027",
-    ship: "Freedom of the Seas",
-    installments: "Em 10x de",
-    priceX: "R$ 234,84",
-    price: "R$ 2.348",
-    discount: "SEM ENTRADA",
-    taxes: "Sem entrada e em até 10x sem juros"
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
-    category: "CARIBE",
-    title: "3 NIGHT PERFECT DAY GETAWAY CRUISE",
-    departure: "Sex., 20 Novembro 2026",
-    ship: "Wonder of the Seas",
-    installments: "Em 10x de",
-    priceX: "R$ 301,45",
-    price: "R$ 3.014",
-    discount: "SEM ENTRADA",
-    taxes: "Sem entrada e em até 10x sem juros"
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
-    category: "CARIBE",
-    title: "3 NIGHT PERFECT DAY GETAWAY CRUISE",
-    departure: "Sex., 20 Novembro 2026",
-    ship: "Wonder of the Seas",
-    installments: "Em 10x de",
-    priceX: "R$ 301,45",
-    price: "R$ 3.014",
-    discount: "SEM ENTRADA",
-    taxes: "Sem entrada e em até 10x sem juros"
-  },];
+const cruiseOffers = [{
+  id: 1,
+  image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
+  category: "CARIBE",
+  title: "7 NIGHT EASTERN CARIBBEAN & PERFECT DAY",
+  departure: "Sáb., 10 Outubro 2026",
+  ship: "Icon of the Seas",
+  installments: "Em 10x de",
+  priceX: "R$ 914,12",
+  price: "R$ 9.141",
+  discount: "SEM ENTRADA",
+  taxes: "Sem entrada e em até 10x sem juros"
+},
+{
+  id: 2,
+  image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
+  category: "CARIBE",
+  title: "4 NIGHT EASTERN CARIBBEAN CRUISE",
+  departure: "Qui., 28 Janeiro 2027",
+  ship: "Freedom of the Seas",
+  installments: "Em 10x de",
+  priceX: "R$ 234,84",
+  price: "R$ 2.348",
+  discount: "SEM ENTRADA",
+  taxes: "Sem entrada e em até 10x sem juros"
+},
+{
+  id: 3,
+  image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
+  category: "CARIBE",
+  title: "3 NIGHT PERFECT DAY GETAWAY CRUISE",
+  departure: "Sex., 20 Novembro 2026",
+  ship: "Wonder of the Seas",
+  installments: "Em 10x de",
+  priceX: "R$ 301,45",
+  price: "R$ 3.014",
+  discount: "SEM ENTRADA",
+  taxes: "Sem entrada e em até 10x sem juros"
+},
+{
+  id: 3,
+  image: "https://images.unsplash.com/photo-1578670812003-60745e2c2ea9?w=600&h=400&fit=crop",
+  category: "CARIBE",
+  title: "3 NIGHT PERFECT DAY GETAWAY CRUISE",
+  departure: "Sex., 20 Novembro 2026",
+  ship: "Wonder of the Seas",
+  installments: "Em 10x de",
+  priceX: "R$ 301,45",
+  price: "R$ 3.014",
+  discount: "SEM ENTRADA",
+  taxes: "Sem entrada e em até 10x sem juros"
+},];
 
 export default function CruiseOffersSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,6 +73,12 @@ export default function CruiseOffersSection() {
     if (w < 1024) return 2;
     return 3;
   };
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      setSelectedOffer(null);
+    }
+  }, [sidebarOpen]);
 
   useEffect(() => {
     const update = () => {
@@ -101,7 +108,7 @@ export default function CruiseOffersSection() {
   }, [currentIndex, visibleCount]);
 
   return (
-    <section className="offers-section">
+    <section className="offers-section" id="ofertas">
       <div className="promo-banner">
         <img src="https://cdn-icons-png.flaticon.com/512/3176/3176376.png" alt="Sem juros" className="promo-icon" />
         <span>Sem entrada e em 10x sem juros</span>
@@ -174,7 +181,6 @@ export default function CruiseOffersSection() {
                       <button
                         className="orcamento-btn"
                         onClick={() => {
-                          setSelectedOffer(offer);
                           setSidebarOpen(true);
                         }}
                       >
@@ -232,21 +238,11 @@ export default function CruiseOffersSection() {
         </div>
       )}
 
-      {/* === SIDEBAR FORMULÁRIO === */}
-      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-        <div className="sidebar-header">
-          <h3>Solicitar Orçamento</h3>
-          <button onClick={() => setSidebarOpen(false)}><X /></button>
-        </div>
-        <form className="sidebar-form">
-          <input type="text" placeholder="Nome *" required />
-          <input type="email" placeholder="E-mail *" required />
-          <input type="tel" placeholder="Telefone *" required />
-          <textarea placeholder="Mensagem (opcional)" rows="3" />
-          <button type="submit" className="orcamento-btn">ENVIAR</button>
-        </form>
-      </div>
-      {sidebarOpen && <div className="sidebar-backdrop" onClick={() => setSidebarOpen(false)} />}
+      <SidebarForm
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
+
     </section>
   );
 }
