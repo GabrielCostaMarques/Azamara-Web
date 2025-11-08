@@ -1,19 +1,20 @@
 import { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 import logoWhite from "../../assets/Azamara-White.png"
 
-export default function Navbar() {
+export default function Navbar({ customClass = "" }) {
   const [open, setOpen] = useState(false);
 
   const toggleMenu = () => setOpen(!open);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar-container-main ${customClass}`}> 
       <div className="navbar-container">
-        <a href="#home" className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <img src={logoWhite} alt="Logo Azamara" />
-        </a>
+        </Link>
 
         <button className="menu-toggle" onClick={toggleMenu} aria-label="Abrir menu">
           {open ? "✕" : "☰"}

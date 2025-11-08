@@ -84,9 +84,9 @@ const DestinyCruiseSection = () => {
 
                         <div className="rc-carousel-container">
                             <div className="rc-carousel-track" ref={trackRef}>
-                                {ships.map((ship) => (
+                                {ships.map((ship, index) => (
                                     <div
-                                        key={ship.id}
+                                        key={index}
                                         className="rc-carousel-card"
                                     // onClick={() => window.open(ship.url, '_blank')}
                                     >

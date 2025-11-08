@@ -25,7 +25,6 @@ export default function Home() {
         <div className="hero-content">
           <h1>Cruzeiros Azamara Cruises</h1>
           <p>Viaje além do itinerário. Viva o destino.</p>
-          <button className="hero-button">Solicitar Orçamento</button>
         </div>
 
         <CruiseForm />

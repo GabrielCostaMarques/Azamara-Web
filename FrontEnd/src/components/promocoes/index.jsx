@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
-import { useCruiseOffers } from "./useCruiseOffers";
 import { useCarousel } from "./funcionalidades/useCarousel";
 import OfferCard from "./funcionalidades/OfferCard";
 import ItineraryPopup from "./funcionalidades/ItineraryPopup";
 import SidebarForm from "./funcionalidades/Sidebarform";
+import { useCruiseOffers } from "../../hooks/useCruiseOffers";
 import "./promo.css";
 
 export default function CruiseOffersSection() {
@@ -22,14 +22,11 @@ export default function CruiseOffersSection() {
     setCurrentIndex,
   } = useCarousel(offers);
 
-
-
   const openBudget = (offer) => {
     setSelectedOffer(offer);
     setSidebarOpen(true);
     setPopupOpen(false);
   };
-
 
   const openDetails = (offer) => {
     setSelectedOffer(offer);
@@ -37,7 +34,10 @@ export default function CruiseOffersSection() {
     setSidebarOpen(false);
   };
 
-  const closePopup = () => setSelectedOffer(null);
+  const closePopup = () => {
+    setPopupOpen(false);
+    setSelectedOffer(null);
+  };
 
   if (loading) {
     return (
@@ -131,7 +131,7 @@ export default function CruiseOffersSection() {
         </div>
       </div>
 
-      {selectedOffer && !sidebarOpen && (
+      {selectedOffer && popupOpen && (
         <ItineraryPopup
           offer={selectedOffer}
           onClose={closePopup}
@@ -143,7 +143,7 @@ export default function CruiseOffersSection() {
         sidebarOpen={sidebarOpen}
         setSidebarOpen={(v) => {
           setSidebarOpen(v);
-          if (!v) setPopupOpen(false); 
+          if (!v) setPopupOpen(false);
         }}
         offer={selectedOffer}
       />

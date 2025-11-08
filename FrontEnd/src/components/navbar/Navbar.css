@@ -1,15 +1,15 @@
  .navbar-container {
    margin: 0 auto;
-   padding: 12px 160px;
+   padding: 20px 160px !important;
    display: flex;
    align-items: center;
    justify-content: space-between;
    font-style: normal;
-   position: absolute;
    width: 100%;
    font-family: "brandon-grotesque", sans-serif;
    font-weight: 600;
    z-index: 998;
+   background: linear-gradient(135deg, #0a1d3d 0%, #0f4c5c 100%) !important;
  }
 
  .navbar-logo img {
@@ -113,11 +113,11 @@
 
    .menu-wrapper {
      position: absolute;
-     top: 100%;
+     top: 10%;
      left: 0;
      width: 100%;
      flex-direction: column;
-     background: white;
+     background: white; 
      border-top: 1px solid #e0e0e0;
      gap: 0;
      max-height: 0;
@@ -125,6 +125,7 @@
      opacity: 0;
      transition: all 0.3s ease;
      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     z-index: 999;
 
    }
 

@@ -1,11 +1,11 @@
 /* Container Principal */
 .cruise-container {
-    min-height: 100vh;
-    background-color: #f9fafb;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 /* Filtros */
@@ -207,9 +207,10 @@
 .metadata-value {
   color: #6b7280;
 }
-.metadata-value span{
+
+.metadata-value span {
   color: #6b7280;
-  text-transform: capitalize ;
+  text-transform: capitalize;
 }
 
 .itinerary-box {
@@ -324,12 +325,17 @@
   margin-top: 4px;
 }
 
-.navbar-container{
-    position: relative;
-    background-color: #fff !important;
-    background: linear-gradient(135deg, #0a1d3d 0%, #0f4c5c 100%) !important;
-}
-.navbar-links{
-    display: none;
-}
 
+/* ===== Navbar ===== */
+
+.search-main {
+  .navbar-container-main {
+    .navbar-links {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  }
+}

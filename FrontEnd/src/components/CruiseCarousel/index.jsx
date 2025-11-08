@@ -14,15 +14,14 @@ const RoyalCruiseSection = () => {
   const trackRef = useRef(null);
 
   const cruiseShips = [
-    { id: 'Pursuit', title: 'Azamara Pursuit', port: '', image: PursuitImg, url: '' },
-    { id: 'Journey', title: 'Azamara Journey', port: '', image: JourneyImg , url: '' },
-    { id: 'Onward', title: 'Azamara Onward', port: '', image: OnwardImg, url: '' },
-    { id: 'Quest', title: 'Azamara Quest', port: '', image: QuestImg, url: '' },
+    { title: 'Azamara Pursuit', port: '', image: PursuitImg, url: '' },
+    { title: 'Azamara Journey', port: '', image: JourneyImg, url: '' },
+    { title: 'Azamara Onward', port: '', image: OnwardImg, url: '' },
+    { title: 'Azamara Quest', port: '', image: QuestImg, url: '' },
   ];
 
   const totalCards = cruiseShips.length;
 
-  // Detecta quantos cards cabem
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 3;
     const w = window.innerWidth;
@@ -91,11 +90,11 @@ const RoyalCruiseSection = () => {
                 ref={trackRef}
                 className="rc-carousel-track"
               >
-                {cruiseShips.map((ship) => (
+                {cruiseShips.map((ship, index) => (
                   <div
-                    key={ship.id}
+                    key={index}
                     className="rc-carousel-card"
-                    // onClick={() => window.open(ship.url, '_blank')}
+                  // onClick={() => window.open(ship.url, '_blank')}
                   >
                     <img src={ship.image} alt={ship.title} className="rc-card-image" />
                     <div className="rc-card-overlay">
