@@ -305,168 +305,241 @@
       animation: fadeIn 0.3s ease;
   }
 
-  .popup-content {
-      background: white;
-      border-radius: 16px;
-      padding: 28px;
-      max-width: 380px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  .popup-contente {
       position: relative;
+      max-width: 850px;
+      max-height: 700px;
+      height: 600px;
+      width: 100%;
+      background: #fff;
+      border-radius: 8px;
+      padding: 24px;
   }
 
   .popup-close {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 16px;
+      right: 16px;
       background: none;
       border: none;
       font-size: 1.4rem;
       color: #999;
       cursor: pointer;
+      padding: 4px;
   }
 
-  .popup-content h3 {
-      color: var(--cor--azul1);
+  .itinerary-title-infos {
+      place-items: center;
+      text-align: center;
+      font-size: 1rem;
+      color: #999;
+      font-weight: 100;
+  }
+
+  .itinerary-title {
+      font-size: 1.4rem;
+      font-weight: 600;
       margin-bottom: 16px;
-      font-size: 1.3rem;
+      text-align: left;
   }
 
-  .itinerary-item {
+  .itinerary-info {
+    display: contents;
+    text-align: center;
+  }
+
+  .itinerary-info p {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 12px 0;
+      gap: 6px;
+      margin-bottom: 4px;
       color: #555;
-      font-size: 0.95rem;
+  }
+
+  .itinerary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+
+
+  }
+
+  .itinerary-table-wrapper {
+      max-height: 350px;
+      overflow-y: auto;
+  }
+
+  .itinerary-table-wrapper::-webkit-scrollbar {
+      width: 6px;
+  }
+
+  .itinerary-table-wrapper::-webkit-scrollbar-thumb {
+      background: #bcbcbc;
+      border-radius: 6px;
+  }
+
+  .itinerary-table-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #999;
+  }
+
+  .itinerary-table thead th {
+      text-align: left;
+      padding: 10px 6px;
+      border-bottom: 2px solid #ddd;
+      font-weight: 600;
+  }
+
+  .itinerary-table tbody td {
+      padding: 8px 6px;
+      border-bottom: 1px solid #eee;
+  }
+
+  .itinerary-table tbody tr:hover {
+      background: #fafafa;
+  }
+
+  .orcamento-container {
+      display: flex;
+      justify-content: center;
   }
 
   .orcamento-btn.full {
-      width: 100%;
+      width: 50%;
       margin-top: 20px;
-      padding: 14px;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
   }
 
+  .orcamento-btn.full:hover {
+      background: #002766;
+  }
+
+
   /* === SIDEBAR === */
-.sidebar {
-  position: fixed;
-  right: -100%;
-  top: 0;
-  width: 515px;
-  max-width: 90vw;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
-  transition: right 0.35s ease;
-  z-index: 1000;
-  overflow-y: auto;
-  padding: 1.5rem;
-  font-family: inherit;
-}
+  .sidebar {
+      position: fixed;
+      right: -100%;
+      top: 0;
+      width: 515px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+      transition: right 0.35s ease;
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 1.5rem;
+      font-family: inherit;
+  }
 
-.sidebar.open {
-  right: 0;
-}
+  .sidebar.open {
+      right: 0;
+  }
 
-.sidebar-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
+  .sidebar-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+  }
 
-/* Header */
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid #eee;
-}
+  /* Header */
+  .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+  }
 
-.sidebar-header h3 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #2c3e50;
-}
+  .sidebar-header h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #2c3e50;
+  }
 
-.sidebar-header button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background 0.2s;
-}
+  .sidebar-header button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: background 0.2s;
+  }
 
-.sidebar-header button:hover {
-  background: #f0f0f0;
-}
+  .sidebar-header button:hover {
+      background: #f0f0f0;
+  }
 
-/* Form */
-.sidebar-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+  /* Form */
+  .sidebar-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+  }
 
-.sidebar-form h4 {
-  margin: 1.25rem 0 0.75rem;
-  font-size: 0.95rem;
-  color: #555;
-  font-weight: 600;
-}
+  .sidebar-form h4 {
+      margin: 1.25rem 0 0.75rem;
+      font-size: 0.95rem;
+      color: #555;
+      font-weight: 600;
+  }
 
-/* Inputs */
-.sidebar-form input,
-.sidebar-form textarea {
-  width: 100%;
-  padding: 0.875rem;
-  border: 1.5px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.2s;
-}
+  /* Inputs */
+  .sidebar-form input,
+  .sidebar-form textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.2s;
+      margin-bottom: 15px;
+  }
 
-.sidebar-form input:focus,
-.sidebar-form textarea:focus {
-  outline: none;
-  border-color: #3498db;
-}
+  .sidebar-form input:focus,
+  .sidebar-form textarea:focus {
+      outline: none;
+      border-color: #3498db;
+  }
 
-/* Campos bloqueados */
-.sidebar-form input.readonly {
-  background: #f8f9fa;
-  color: #2c3e50;
-  font-weight: 500;
-  cursor: default;
-}
+  /* Campos bloqueados */
+  .sidebar-form input.readonly {
+      background: #f8f9fa;
+      color: #2c3e50;
+      font-weight: 500;
+      cursor: default;
+  }
 
-.sidebar-form input.readonly.price {
-  color: #e74c3c;
-  font-weight: bold;
-}
+  .sidebar-form input.readonly.price {
+      color: #e74c3c;
+      font-weight: bold;
+  }
 
-.offer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
+  .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+  }
 
-.offer-info .full {
-  grid-column: span 2;
-}
+  .offer-info .full {
+      grid-column: span 2;
+  }
 
-/* Botão */
-.orcamento-btn.full {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
+  /* Botão */
+  .orcamento-btn.full {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+  }
 
   /* Animações */
   @keyframes fadeIn {

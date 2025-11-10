@@ -52,7 +52,17 @@
 
 @media (max-width: 1024px) {
   .hero-content {
-    top: 28%;
+    top: 30%;
+
+    .hero-button {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .hero-content {
+    top: 30%;
 
     .hero-button {
       display: none;

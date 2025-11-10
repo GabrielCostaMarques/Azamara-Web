@@ -91,6 +91,14 @@ export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
               placeholder="Nome completo *"
               required
             />  
+
+            <input
+              type="text"
+              name="agencia"
+              placeholder="Você é uma agência ? *"
+              required
+            />  
+
             <input
               type="email"
               name="email"
