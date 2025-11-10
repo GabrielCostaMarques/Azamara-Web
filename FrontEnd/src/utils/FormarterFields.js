@@ -13,8 +13,8 @@ const formatDate = (dateStr) => {
 
 const formatCurrency = (value) =>
     value.toLocaleString("pt-BR", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
     });
 
 export { formatDate, formatCurrency };

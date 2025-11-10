@@ -10,14 +10,12 @@ import Footer from '../../components/Footer';
 import { useCruiseOffers } from './../../hooks/useCruiseOffers';
 
 export default function CruiseBooking() {
-    // ⚠️ MUDOU: agora usa allOffers ao invés de offers
+
     const { allOffers, loading, error } = useCruiseOffers();
     
     const [selectedOffer, setSelectedOffer] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [popupOpen, setPopupOpen] = useState(false);
-    
-    // ⚠️ NOVO: controla quantos itens mostrar (paginação visual)
     const [displayCount, setDisplayCount] = useState(6);
 
     const { state } = useLocation();
@@ -50,7 +48,6 @@ export default function CruiseBooking() {
         setSelectedOffer(null);
     };
 
-    // ⚠️ PASSO 1: FILTRAR todos os dados
     const filteredOffers = useMemo(() => {
         return allOffers.filter((offer) => {
             const offerDestination = offer.category?.toUpperCase();
@@ -84,7 +81,6 @@ export default function CruiseBooking() {
         });
     }, [allOffers, filters]);
 
-    // ⚠️ PASSO 2: ORDENAR os resultados filtrados
     const sortedOffers = useMemo(() => {
         const sorted = [...filteredOffers];
 
@@ -102,20 +98,17 @@ export default function CruiseBooking() {
         }
     }, [filteredOffers, filters.sortBy]);
 
-    // ⚠️ PASSO 3: PAGINAR a visualização (slice local)
+
     const displayedOffers = useMemo(() => {
         return sortedOffers.slice(0, displayCount);
     }, [sortedOffers, displayCount]);
 
-    // ⚠️ Controla se tem mais ofertas para mostrar
     const hasMore = displayCount < sortedOffers.length;
 
-    // ⚠️ MUDOU: agora adiciona 6 ao contador local
     const seeMore = () => {
         setDisplayCount(prev => prev + 6);
     };
 
-    // ⚠️ NOVO: Loading state
     if (loading) {
         return (
             <>
@@ -132,7 +125,6 @@ export default function CruiseBooking() {
         );
     }
 
-    // ⚠️ NOVO: Error state
     if (error) {
         return (
             <>
@@ -177,7 +169,6 @@ export default function CruiseBooking() {
                                 <Ship className="filter-icon" />
                                 <div className="filter-content">
                                     <div className="filter-label">Navios</div>
-                                    {/* ⚠️ MUDOU: condicional para não mostrar "Azamara Todos os Navios" */}
                                     <div className="filter-value">
                                         {filters.ships === 'Todos os Navios' ? 'Todos os Navios' : `Azamara ${filters.ships}`}
                                     </div>
@@ -207,20 +198,17 @@ export default function CruiseBooking() {
                             </select>
                         </div>
 
-                        {/* ⚠️ NOVO: Contador de resultados */}
                         <div style={{ textAlign: 'center', marginTop: '10px', color: '#666' }}>
                             Mostrando {displayedOffers.length} de {sortedOffers.length} ofertas
                         </div>
                     </div>
 
-                    {/* ⚠️ NOVO: Mensagem quando não há resultados */}
                     {displayedOffers.length === 0 ? (
                         <div style={{ textAlign: 'center', padding: '50px' }}>
                             <h3>Nenhuma oferta encontrada com os filtros selecionados</h3>
                             <p>Tente ajustar os filtros para ver mais resultados</p>
                         </div>
                     ) : (
-                        // ⚠️ MUDOU: agora usa displayedOffers (já filtrados, ordenados e paginados)
                         displayedOffers.map((offer, index) => (
                             <div className="cruise-card" key={`${offer.code}-${index}`}>
                                 <div className="cruise-grid">
@@ -298,7 +286,6 @@ export default function CruiseBooking() {
                         ))
                     )}
 
-                    {/* ⚠️ MUDOU: Botão só aparece se houver mais resultados */}
                     {hasMore && (
                         <div className="see-more-container">
                             <button className="see-more-button" onClick={seeMore}>

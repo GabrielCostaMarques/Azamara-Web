@@ -14,6 +14,9 @@ export default function CruiseForm() {
     dataInicio: null,
   });
 
+  const minDate = new Date();
+  const maxDate = new Date("2028-12-31");
+
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -98,6 +101,9 @@ export default function CruiseForm() {
                 calendarClassName="custom-calendar"
                 popperClassName="custom-datepicker-popper"
                 showMonthYearPicker
+                minDate={minDate}
+                maxDate={maxDate}
+                
               />
             </div>
           </div>
