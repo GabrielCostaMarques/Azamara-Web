@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { MapPin, Anchor, Calendar, ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./motor.css";
 
 export default function CruiseForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     destino: "",
     navio: "",
@@ -17,8 +19,7 @@ export default function CruiseForm() {
   };
 
   const handleSubmit = () => {
-
-    const obj ={
+    const obj = {
       ...formData,
       dataInicio: formData.dataInicio ? formData.dataInicio.toISOString() : null,
       dataFim: formData.dataFim ? formData.dataFim.toISOString() : null,
@@ -26,13 +27,13 @@ export default function CruiseForm() {
       destino: formData.destino || "",
     };
 
-    console.log("Orçamento:", obj);
-    alert("Buscando saídas...");
+    navigate('/resultSearch', { state: { searchData: obj } });
   };
 
   return (
     <div className="motor-wrapper">
       <div className="motor">
+        {/* DESTINO */}
         <div className="motor-item">
           <MapPin className="motor-icon" />
           <div className="motor-field">
@@ -43,10 +44,10 @@ export default function CruiseForm() {
                 onChange={(e) => handleChange("destino", e.target.value)}
               >
                 <option value="">Qualquer Destino</option>
-                <option value="caribe">Caribe</option>
-                <option value="europa">Europa</option>
-                <option value="alaska">Alaska</option>
-                <option value="bahamas">Bahamas</option>
+                <option value="CARIBBEAN">Caribbean</option>
+                <option value="EUROPE">Europa</option>
+                <option value="ALASKA">Alaska</option>
+                <option value="MEDITERRANEAN">Mediterranean</option>
               </select>
               <ChevronDown className="select-arrow" />
             </div>
@@ -64,10 +65,10 @@ export default function CruiseForm() {
                 onChange={(e) => handleChange("navio", e.target.value)}
               >
                 <option value="">Selecione o seu Navio</option>
-                <option value="pursuit">Azamara Pursuit</option>
-                <option value="journey">Azamara Journey</option>
-                <option value="onward">Azamara Onward</option>
-                <option value="quest">Azamara Quest</option>
+                <option value="PURSUIT">Azamara Pursuit</option>
+                <option value="JOURNEY">Azamara Journey</option>
+                <option value="ONWARD">Azamara Onward</option>
+                <option value="QUEST">Azamara Quest</option>
               </select>
               <ChevronDown className="select-arrow" />
             </div>
@@ -97,7 +98,7 @@ export default function CruiseForm() {
                 calendarClassName="custom-calendar"
                 popperClassName="custom-datepicker-popper"
                 showMonthYearPicker
-                />
+              />
             </div>
           </div>
         </div>

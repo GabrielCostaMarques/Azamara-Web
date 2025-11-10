@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { useCarousel } from "./funcionalidades/useCarousel";
 import OfferCard from "./funcionalidades/OfferCard";
@@ -8,20 +8,28 @@ import { useCruiseOffers } from "../../hooks/useCruiseOffers";
 import "./promo.css";
 
 export default function CruiseOffersSection() {
-  const { offers, loading, error } = useCruiseOffers();
-  const [selectedOffer, setSelectedOffer] = useState(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [popupOpen, setPopupOpen] = useState(false);
+const { allOffers = [], loading, error } = useCruiseOffers();
+const [selectedOffer, setSelectedOffer] = useState(null);
+const [sidebarOpen, setSidebarOpen] = useState(false);
+const [popupOpen, setPopupOpen] = useState(false);
 
-  const {
-    currentIndex,
-    maxIndex,
-    nextSlide,
-    prevSlide,
-    trackRef,
-    setCurrentIndex,
-  } = useCarousel(offers);
+const [limitedOffers, setLimitedOffers] = useState([]);
 
+// sempre que allOffers mudar, pegamos só as 6 primeiras
+useEffect(() => {
+  if (allOffers.length > 0) {
+    setLimitedOffers(allOffers.slice(0, 6));
+  }
+}, [allOffers]);
+
+const {
+  currentIndex,
+  maxIndex,
+  nextSlide,
+  prevSlide,
+  trackRef,
+  setCurrentIndex,
+} = useCarousel(limitedOffers);
   const openBudget = (offer) => {
     setSelectedOffer(offer);
     setSidebarOpen(true);
@@ -56,7 +64,7 @@ export default function CruiseOffersSection() {
     );
   }
 
-  if (error || offers.length === 0) {
+  if (error || limitedOffers.length === 0) {
     return (
       <section className="offers-section" id="ofertas">
         <div className="offers-container">
@@ -100,7 +108,7 @@ export default function CruiseOffersSection() {
 
           <div className="carousel-container">
             <div ref={trackRef} className="carousel-track">
-              {offers.map((offer) => (
+              {limitedOffers.map((offer) => (
                 <OfferCard
                   key={offer.id}
                   offer={offer}

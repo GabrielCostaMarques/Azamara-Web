@@ -11,6 +11,7 @@
 /* Filtros */
 .filters-card {
   max-width: 1280px;
+  justify-content: space-around;
   margin: 0 auto 24px;
   background-color: white;
   border-radius: 8px;
@@ -33,7 +34,7 @@
 
 @media (min-width: 1024px) {
   .filters-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -60,6 +61,7 @@
 }
 
 .filter-value {
+  text-transform: capitalize !important;
   font-weight: 500;
   font-size: 14px;
   color: #111827;
@@ -205,12 +207,13 @@
 }
 
 .metadata-value {
+  text-transform: capitalize !important;
   color: #6b7280;
 }
 
 .metadata-value span {
   color: #6b7280;
-  text-transform: capitalize;
+  text-transform: capitalize !important;
 }
 
 .itinerary-box {
