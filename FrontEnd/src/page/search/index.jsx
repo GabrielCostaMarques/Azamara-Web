@@ -2,21 +2,17 @@ import { useState, useMemo } from 'react';
 import { Ship, Calendar, Users, MapPin } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import CruiseForm from '../../components/Motor/index'
-import ItineraryPopup from '../../components/Promocoes/funcionalidades/ItineraryPopup';
-import SidebarForm from '../../components/Promocoes/funcionalidades/Sidebarform';
+
 import './search.css';
 
 import Navbar from '../../components/navbar';
 import Footer from '../../components/Footer';
 import { useCruiseOffers } from './../../hooks/useCruiseOffers';
+import ResultItems from '../../components/ResultPage/ResultItems/index';
 
-export default function CruiseBooking() {
+export default function CruiseBooking({ customClass = "" }) {
 
     const { allOffers, loading, error } = useCruiseOffers();
-
-    const [selectedOffer, setSelectedOffer] = useState(null);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [popupOpen, setPopupOpen] = useState(false);
     const [displayCount, setDisplayCount] = useState(6);
 
     const { state } = useLocation();
@@ -32,22 +28,7 @@ export default function CruiseBooking() {
         sortBy: 'Menor Preço'
     });
 
-    const openBudget = (offer) => {
-        setSelectedOffer(offer);
-        setSidebarOpen(true);
-        setPopupOpen(false);
-    };
 
-    const openDetails = (offer) => {
-        setSelectedOffer(offer);
-        setPopupOpen(true);
-        setSidebarOpen(false);
-    };
-
-    const closePopup = () => {
-        setPopupOpen(false);
-        setSelectedOffer(null);
-    };
 
     const filteredOffers = useMemo(() => {
         return allOffers.filter((offer) => {
@@ -148,10 +129,13 @@ export default function CruiseBooking() {
             <main className='search-main'>
                 <Navbar customClass="navbar-cruise" />
 
-                <br></br>
-                <CruiseForm />
+
 
                 <div className="cruise-container">
+                    <div className={`motor-result ${customClass}`}>
+                        <CruiseForm />
+
+                    </div>
                     {/* Filtros */}
                     <div className="filters-card">
                         <div className="filters-grid">
@@ -205,9 +189,9 @@ export default function CruiseBooking() {
                         </div>
                     </div>
 
-                    <div style={{ textAlign: 'center', marginTop: '1px', color: '#666'  }}>
-                            Mostrando {displayedOffers.length} de {sortedOffers.length} ofertas
-                        </div>
+                    <div style={{ textAlign: 'center', marginTop: '1px', color: '#666' }}>
+                        Mostrando {displayedOffers.length} de {sortedOffers.length} ofertas
+                    </div>
 
                     {displayedOffers.length === 0 ? (
                         <div style={{ textAlign: 'center', padding: '50px' }}>
@@ -216,79 +200,7 @@ export default function CruiseBooking() {
                         </div>
                     ) : (
                         displayedOffers.map((offer, index) => (
-                            <div className="cruise-card" key={`${offer.code}-${index}`}>
-                                <div className="cruise-grid">
-                                    <div className="cruise-image-container">
-                                        <img
-                                            src={offer.image}
-                                            alt="Destino do Cruzeiro"
-                                            className="cruise-image"
-                                        />
-                                    </div>
-
-                                    <div className="cruise-info">
-                                        <div className="cruise-content">
-                                            <div className="cruise-details">
-                                                <h2 className="cruise-title">{offer.title}</h2>
-
-                                                <div className="cruise-metadata">
-                                                    <div className="metadata-item">
-                                                        <span className="metadata-label">Partindo De:</span>
-                                                        <span className="metadata-value">{offer.EmbarkPortName}</span>
-                                                    </div>
-                                                    <div className="metadata-item">
-                                                        <span className="metadata-label">A bordo do:</span>
-                                                        <span className="metadata-value">
-                                                            {offer.ship.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())}
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="itinerary-box">
-                                                    <div className="itinerary-content">
-                                                        <MapPin className="itinerary-icon" />
-                                                        <div>
-                                                            <div className="itinerary-title">Itinerário</div>
-                                                            <div className="itinerary-text">
-                                                                {offer.ports}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <button className="explore-button" onClick={() => openDetails(offer)}>
-                                                    Explore este itinerário
-                                                </button>
-                                            </div>
-
-                                            <div className="price-section">
-                                                <div className="price-label">A partir de*</div>
-                                                <div className="price-value">
-                                                    {offer.price}
-                                                </div>
-                                                <div className="price-description">Tarifa p/ Hóspede</div>
-                                                <div className="price-installments">{offer.installments}</div>
-
-                                                <button className="booking-button" onClick={() => openBudget(offer)}>
-                                                    Solicitar Orçamento
-                                                </button>
-
-                                                <div className="booking-details">
-                                                    <div className="booking-date">
-                                                        {offer.departure}
-                                                    </div>
-                                                    <div className="booking-duration">
-                                                        Duração: {offer.nights} noites
-                                                    </div>
-                                                    <div className="booking-taxes">
-                                                        *Impostos, taxas e despesas portuárias não inclusas
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ResultItems index={index} key={offer} offer={offer}/>
                         ))
                     )}
 
@@ -299,23 +211,6 @@ export default function CruiseBooking() {
                             </button>
                         </div>
                     )}
-
-                    {selectedOffer && popupOpen && (
-                        <ItineraryPopup
-                            offer={selectedOffer}
-                            onClose={closePopup}
-                            onBudget={openBudget}
-                        />
-                    )}
-
-                    <SidebarForm
-                        sidebarOpen={sidebarOpen}
-                        setSidebarOpen={(v) => {
-                            setSidebarOpen(v);
-                            if (!v) setPopupOpen(false);
-                        }}
-                        offer={selectedOffer}
-                    />
                 </div>
                 <Footer />
             </main>
