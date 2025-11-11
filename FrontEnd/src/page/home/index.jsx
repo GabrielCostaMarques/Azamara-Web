@@ -1,6 +1,5 @@
 import Navbar from "../../components/navbar";
 import "./Home.css";
-import CruiseForm from "../../components/motor"
 import CruiseOffersSection from "../../components/promocoes"
 import EuropeOffers from "../../components/promocoes/EuropeOffer/EuropeOffers";
 import AzamaraSection from "../../components/infos";
@@ -11,6 +10,7 @@ import StickyFooter from "../../components/StickyFooter"
 
 import bannerDesk from "../../assets/Banners/banner-Desktop-azamara.webp";
 import bannerMobile from "../../assets/Banners/banner-Mobile-azamara.webp";
+import CruiseFormV2 from "../../components/Motorv2";
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
           <p>Viaje além do itinerário. Viva o destino.</p>
         </div>
 
-        <CruiseForm />
+        <CruiseFormV2 />
       </section>
       <section>
         <CruiseOffersSection />

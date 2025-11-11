@@ -2,8 +2,9 @@
   position: relative;
   width: 100%;
   height: 90vh;
-  overflow: hidden;
 }
+
+
 
 .hero-banner picture,
 .hero-banner img {
