@@ -53,7 +53,7 @@
 
 @media (max-width: 1024px) {
   .hero-content {
-    top: 30%;
+    top: 21% !important;
 
     .hero-button {
       display: none;

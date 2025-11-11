@@ -13,16 +13,15 @@ export default function CruiseFormV2() {
     dataFim: null,
     dataInicio: null,
   });
-
   const [destinos, setDestinos] = useState([]);
   const [navios, setNavios] = useState([]);
   const [selectedDestino, setSelectedDestino] = useState(null);
   const [selectedNavio, setSelectedNavio] = useState(null);
   const [isOpenDestino, setIsOpenDestino] = useState(false);
   const [isOpenNavio, setIsOpenNavio] = useState(false);
-
   const [openUpDestino, setOpenUpDestino] = useState(false);
   const [openUpNavio, setOpenUpNavio] = useState(false);
+  const [openSpanClear, setOpenSpanClear] = useState(false);
 
   const destinoRef = useRef(null);
   const navioRef = useRef(null);
@@ -97,6 +96,49 @@ export default function CruiseFormV2() {
 
     navigate("/resultSearch", { state: { searchData: obj } });
   };
+
+
+   const handleDateChange = ([start, end]) => {
+    if (start && end && start.getTime() === end.getTime()) {
+      // Usuário clicou duas vezes no mesmo mês → selecionar o mês inteiro
+      const firstDay = new Date(start.getFullYear(), start.getMonth(), 1);
+      const lastDay = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+
+      setFormData((prev) => ({
+        ...prev,
+        dataInicio: firstDay,
+        dataFim: lastDay,
+      }));
+    } else {
+      // Seleção normal
+      setFormData((prev) => ({
+        ...prev,
+        dataInicio: start,
+        dataFim: end,
+      }));
+    }}
+
+  useEffect(() => {
+    if (selectedNavio || selectedDestino || formData.dataInicio || formData.dataFim) {
+      setOpenSpanClear(true);
+    } else {
+      setOpenSpanClear(false);
+    }
+  }, [selectedNavio, selectedDestino, formData.dataInicio, formData.dataFim]);
+
+
+  const handleClearFields = () => {
+    setSelectedDestino(null);
+    setSelectedNavio(null);
+    setFormData({
+      destino: "",
+      navio: "",
+      dataFim: null,
+      dataInicio: null,
+    });
+    setOpenSpanClear(false);
+  };
+
 
   return (
     <div className="motor-wrapper">
@@ -186,13 +228,7 @@ export default function CruiseFormV2() {
                 selectsRange
                 startDate={formData.dataInicio}
                 endDate={formData.dataFim}
-                onChange={([start, end]) => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    dataInicio: start,
-                    dataFim: end,
-                  }));
-                }}
+                onChange={handleDateChange}
                 onInputClick={() => {
                   setIsOpenDestino(false);
                   setIsOpenNavio(false);
@@ -205,6 +241,7 @@ export default function CruiseFormV2() {
                 showMonthYearPicker
                 minDate={minDate}
                 maxDate={maxDate}
+                
               />
             </div>
           </div>
@@ -214,6 +251,9 @@ export default function CruiseFormV2() {
           Ver Saídas
         </button>
       </div>
+      {openSpanClear && (
+        <button onClick={handleClearFields} className="clear-dates-span">Limpar</button>
+        )}
     </div>
   );
 }
