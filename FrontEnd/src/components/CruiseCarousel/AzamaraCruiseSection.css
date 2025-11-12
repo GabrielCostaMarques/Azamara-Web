@@ -301,17 +301,17 @@
 
 .rc-modal-body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   max-height: 60vh;
   overflow-y: auto;
 }
 
 .rc-modal-image {
-  width: 0%;
-  height: 100px;
+  width: 50%;
+  height: auto;
   object-fit: cover;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px 0 0 0;
 }
 
 .rc-modal-text {
@@ -331,20 +331,19 @@
   color: #444;
 }
 
+
 /* Responsivo */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .rc-modal-body {
     flex-direction: row;
   }
 
   .rc-modal-image {
-    width: 50%;
-    height: auto;
-    border-radius: 16px 0 0 16px;
+    display: none;
   }
 
   .rc-modal-text {
-    width: 50%;
+    width: 100%;
     padding: 30px;
   }
 }

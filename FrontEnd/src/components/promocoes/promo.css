@@ -24,8 +24,11 @@
   }
 
   .offers-container {
-      max-width: 1300px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
   }
 
   .section-header {
@@ -41,7 +44,7 @@
 
   .carousel-wrapper {
       position: relative;
-      padding: 0 60px;
+      padding: 0 45px;
   }
 
   .carousel-container {
@@ -316,15 +319,15 @@
       animation: fadeIn 0.3s ease;
   }
 
-.popup-contente {
-    position: relative;
-    max-width: 850px;
-    max-height: 700px;
-    width: 100%;
-    background: #fff;
-    border-radius: 8px;
-    padding: 24px;
-}
+  .popup-contente {
+      position: relative;
+      max-width: 850px;
+      max-height: 700px;
+      width: 100%;
+      background: #fff;
+      border-radius: 8px;
+      padding: 24px;
+  }
 
   .popup-close {
       position: absolute;
