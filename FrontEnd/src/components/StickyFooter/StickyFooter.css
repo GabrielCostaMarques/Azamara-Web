@@ -98,6 +98,10 @@
   font-family: "brandon-grotesque", sans-serif;
 }
 
+.popup-content svg {
+  transform: scaleX(-1);
+}
+
 .popup-close {
   position: absolute;
   top: 16px;

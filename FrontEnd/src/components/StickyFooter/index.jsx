@@ -20,7 +20,10 @@ const StickyFooter = () => {
         <h3>Ligue agora</h3>
         <p>Nosso time está pronto para te atender!</p>
         <a href="tel:+5511999999999" className="popup-phone">
-          <FaPhone /> (11) 99999-9999
+          <FaPhone/> Hóspedes Diretos
+        </a>
+        <a href="tel:+5511999999999" className="popup-phone">
+          <FaPhone /> Agências de Viagem
         </a>
         <p className="popup-note">Segunda a sexta: 9h às 18h</p>
       </div>

@@ -50,7 +50,7 @@ export default function Home() {
         <AzamaraSection />
       </section>
 
-      <section className="DestintCarousel">
+      <section>
         <AlwaysInclude />
       </section>
 

@@ -1,6 +1,7 @@
 
 
 import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import './search.css';
 
@@ -16,8 +17,18 @@ import PromoBanner from '../../components/ResultPage/PromoBanner';
 export default function CruiseBooking({ customClass = "" }) {
 
     const { allOffers, loading, error } = useCruiseOffers();
-    const { state } = useLocation();
-    const filter = state?.searchData;
+    const location = useLocation();
+    const filter = location.state?.searchData;
+
+    useEffect(() => {
+    if (loading==false) {
+
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location,loading]);
 
 
     const {
@@ -88,6 +99,7 @@ export default function CruiseBooking({ customClass = "" }) {
 
                     <div className="filter-container">
                         <h3>Resultado de sua pesquisa</h3>
+                        <div id="result"></div>
                         <ResultFilter filters={filters} setFilters={setFilters} />
                     </div>
 

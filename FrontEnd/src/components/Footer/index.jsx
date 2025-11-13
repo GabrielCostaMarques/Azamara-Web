@@ -1,4 +1,3 @@
-// components/Footer.jsx
 import './Footer.css';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
 import Logo from "../../assets/Azamara-color.png"
@@ -11,9 +10,10 @@ const Footer = () => {
         <div className="footer-logos">
           <img
             src={R11}
-            alt="Shopping de Cruzeiros"
+            alt="R11 Travel"
             className="footer-logo"
           />
+          <div className="divider"></div>
           <div className="footer-partner">
             <img
               src={Logo}
@@ -22,6 +22,11 @@ const Footer = () => {
             />
           </div>
         </div>
+        <div className="footer-contact">
+          <h5>Receba as Melhores Ofertas</h5>
+          <input type="text" className="input-email" placeholder='Seu Email'/>
+          </div>
+
       </div>
       <div className="footer-section">
 
@@ -42,7 +47,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2025 R11 Travel. Todos os Direitos Reservados.</p>
         <div className="footer-social">
-          <a href="#" aria-label="Instagram"><FaInstagram /></a>
+          <a href="https://www.instagram.com/azamaracruisesbrasil/" aria-label="Instagram"><FaInstagram /></a>
           <a href="mailto:contato@shoppingdecruzeiros.com.br" aria-label="Email"><FaEnvelope /></a>
         </div>
       </div>

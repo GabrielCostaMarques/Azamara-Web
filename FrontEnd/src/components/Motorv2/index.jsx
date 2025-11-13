@@ -92,9 +92,10 @@ export default function CruiseFormV2() {
 
     if (location.pathname === "/resultSearch") {
       navigate(0);
+      
     }
 
-    navigate("/resultSearch", { state: { searchData: obj } });
+    navigate("/resultSearch#result", { state: { searchData: obj } });
   };
 
 

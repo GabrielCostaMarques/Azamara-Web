@@ -29,7 +29,6 @@ export default function ResultFilter({ filters, setFilters }) {
                         </div>
                     </div>
                 </div>
-
                 <div className="filter-item">
                     <Users className="filter-icon" />
 
@@ -61,6 +60,8 @@ export default function ResultFilter({ filters, setFilters }) {
                     </select>
                 </div>
             </div>
+            
         </div>
+        
     )
 }
