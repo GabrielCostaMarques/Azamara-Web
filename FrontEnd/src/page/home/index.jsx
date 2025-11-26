@@ -10,7 +10,7 @@ import AlwaysInclude from "../../components/AlwaysInclude";
 import bannerDesk from "../../assets/Banners/banner-Desktop-azamara.webp";
 import bannerMobile from "../../assets/Banners/banner-Mobile-azamara.webp";
 import CruiseFormV2 from "../../components/Motorv2";
-import "./Home.css";
+import "./home.css";
 
 export default function Home() {
   return (

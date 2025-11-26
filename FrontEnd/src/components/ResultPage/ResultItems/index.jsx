@@ -1,14 +1,14 @@
 import { useState } from "react";
 import ItineraryPopup from '../../promocoes/funcionalidades/ItineraryPopup';
-import ItineraryMap from '../../ItineraryMap';
-import SidebarForm from '../../Promocoes/funcionalidades/Sidebarform';
+// import ItineraryMap from '../../ItineraryMap';
+import SidebarForm from '../../promocoes/funcionalidades/Sidebarform';
 import './resultItems.css';
 
 export default function ResultItems({ offer, index }) {
     const [selectedOffer, setSelectedOffer] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [popupOpen, setPopupOpen] = useState(false);
-    const [showMap, setShowMap] = useState(false);
+    // const [showMap, setShowMap] = useState(false);
 
     const openBudget = (offer) => {
         setSelectedOffer(offer);

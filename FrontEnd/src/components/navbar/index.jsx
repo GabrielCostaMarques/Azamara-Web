@@ -29,7 +29,7 @@ export default function Navbar({ customClass = "" }) {
           </ul>
 
           <button className="fale-conosco" onClick={() =>{ setOpen(false), window.location.href='tel:+5511999999999'}}>
-            Fale com nossos Concierges (11) 9999-9999
+            Fale com nossos Concierges (11) 4760-9317
           </button>
         </div>
       </div>
