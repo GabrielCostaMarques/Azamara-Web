@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import "../promo.css";
+import emailjs from "@emailjs/browser";
 
 export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
 
@@ -9,25 +10,39 @@ export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    console.log("Orçamento solicitado:", {
-      cliente: data,
-      oferta: hasOffer
-        ? {
-          id: offer.id,
-          title: offer.title,
-          ship: `Azamara ${offer.ship}`,
-          departure: offer.departure,
-          price: offer.price,
-          ports: offer.ports,
-        }
-        : "Nenhuma oferta selecionada",
-    });
+    const payload = {
+      name: data.name,
+      tipoCliente: data.tipoCliente,
+      email: data.email,
+      phone: data.phone,
+      number: data.number,
+      message: data.message || "Nenhuma mensagem informada",
 
-    alert("Orçamento solicitado com sucesso!");
-    setSidebarOpen(false);
+      offer_title: hasOffer ? offer.title : "Nenhuma oferta selecionada",
+      offer_ship: hasOffer ? `Azamara ${offer.ship}` : "",
+      offer_departure: hasOffer ? offer.departure : "",
+      offer_price: hasOffer ? offer.price : "",
+      offer_ports: hasOffer ? offer.ports : "",
+    };
+
+    emailjs.send(
+      "service_env4ecd",       
+      "template_kjh9pus", 
+      payload,
+      "UKMTk2rdYtNXzicbK"     
+    )
+      .then(() => {
+        alert("Orçamento solicitado com sucesso!");
+        setSidebarOpen(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao enviar email:", err);
+        alert("Erro ao enviar seu orçamento. Tente novamente.");
+      });
   };
 
 
@@ -88,7 +103,6 @@ export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
             </div>
           )}
 
-          {/* === DADOS DO CLIENTE === */}
           <div className="client-info">
             <h4>Seus Dados</h4>
 

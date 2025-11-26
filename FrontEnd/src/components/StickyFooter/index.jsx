@@ -1,11 +1,11 @@
-// components/StickyFooter.jsx
 import React, { useState } from 'react';
 import './StickyFooter.css';
 import { FaPhone, FaWhatsapp, FaEnvelope, FaTimes } from 'react-icons/fa';
 import Logo from "../../assets/Azamara-color.png";
+import emailjs from "@emailjs/browser"
 
 const StickyFooter = () => {
-  const [popup, setPopup] = useState(null); 
+  const [popup, setPopup] = useState(null);
 
   const openPopup = (type) => setPopup(type);
   const closePopup = () => setPopup(null);
@@ -19,7 +19,7 @@ const StickyFooter = () => {
         <h3>Ligue agora</h3>
         <p>Nosso time está pronto para te atender!</p>
         <a href="tel:+551147609317" className="popup-phone">
-          <FaPhone/> Hóspedes Diretos
+          <FaPhone /> Hóspedes Diretos
         </a>
         <a href="tel:+551147609317" className="popup-phone">
           <FaPhone /> Agências de Viagem
@@ -85,10 +85,40 @@ const StickyFooter = () => {
 
   const EmailPopup = () => {
     const [sent, setSent] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const [formData, setFormData] = useState({
+      from_name: "",
+      reply_to: "",
+      message: ""
+    });
+
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    };
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      setSent(true);
+      setLoading(true);
+
+      emailjs
+        .send(
+          "service_nnmi3fn",    
+          "template_9b4sxwc",   
+          formData,
+          "YHIeqCykoTz5ANg9R"   
+        )
+        .then(() => {
+          setSent(true);
+        })
+        .catch((err) => {
+          console.error("Erro ao enviar email:", err);
+          alert("Ocorreu um erro ao enviar a mensagem. Tente novamente.");
+        })
+        .finally(() => setLoading(false));
     };
 
     return (
@@ -97,6 +127,7 @@ const StickyFooter = () => {
           <button className="popup-close" onClick={closePopup}>
             <FaTimes />
           </button>
+
           <h3>Envie sua dúvida por e-mail</h3>
           <p>Preencha os campos abaixo e responderemos em até 24h.</p>
 
@@ -107,11 +138,38 @@ const StickyFooter = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <input type="text" placeholder="Nome *" required className="popup-input" />
-              <input type="email" placeholder="E-mail *" required className="popup-input" />
-              <textarea placeholder="Sua mensagem *" required className="popup-textarea" rows="4" />
-              <button type="submit" className="popup-submit">
-                ENVIAR MENSAGEM
+              <input
+                type="text"
+                name="from_name"
+                placeholder="Nome *"
+                required
+                className="popup-input"
+                value={formData.from_name}
+                onChange={handleChange}
+              />
+
+              <input
+                type="email"
+                name="reply_to"
+                placeholder="E-mail *"
+                required
+                className="popup-input"
+                value={formData.reply_to}
+                onChange={handleChange}
+              />
+
+              <textarea
+                name="message"
+                placeholder="Sua mensagem *"
+                required
+                className="popup-textarea"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+              />
+
+              <button type="submit" className="popup-submit" disabled={loading}>
+                {loading ? "Enviando..." : "ENVIAR MENSAGEM"}
               </button>
             </form>
           )}
