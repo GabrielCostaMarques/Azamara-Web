@@ -21,7 +21,7 @@ const StickyFooter = () => {
         <a href="tel:+551147609317" className="popup-phone">
           <FaPhone /> Hóspedes Diretos
         </a>
-        <a href="tel:+551147609317" className="popup-phone">
+        <a href="tel:+551130907200" className="popup-phone">
           <FaPhone /> Agências de Viagem
         </a>
         <p className="popup-note">Segunda a sexta: 9h às 18h</p>

@@ -117,8 +117,8 @@ export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
               <option value="" disabled selected>
                 Tipo de Cliente*
               </option>
-              <option value="particular">Sou Hóspede</option>
-              <option value="agencia">Sou Agência de Viagens</option>
+              <option value="Sou Hóspede">Sou Hóspede</option>
+              <option value="Sou Agência de Viagens">Sou Agência de Viagens</option>
             </select>
 
             <input

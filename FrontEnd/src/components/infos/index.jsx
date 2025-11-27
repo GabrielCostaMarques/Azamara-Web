@@ -22,17 +22,11 @@ export default function AzamaraSection() {
           <h2 className="Azamara-title">Azamara Cruises</h2>
 
           <p>
-            A Azamara Cruises é reconhecida mundialmente por oferecer uma experiência íntima,
-            autêntica e voltada para quem deseja viver cada destino, e não apenas visitá-lo.
-            Seus navios menores permitem atracar em portos exclusivos,
-            chegar mais perto das cidades e permanecer mais tempo em cada escala, garantindo imersão cultural,
-            gastronômica e histórica em cada viagem.
+            A Azamara Cruises é reconhecida mundialmente por oferecer uma experiência íntima, autêntica e voltada para quem deseja viver cada destino, e não apenas visitá-lo. Seus navios menores permitem atracar em portos exclusivos, chegar mais perto das cidades e permanecer mais tempo em cada escala, garantindo imersão cultural, gastronômica e histórica em cada viagem.
           </p>
 
           <p>
-            No Brasil, o Shopping de Cruzeiros é o parceiro oficial da Azamara,  
-            a sua porta de entrada para navegar com uma das companhias mais premiadas do mundo quando o assunto é
-            hospitalidade e excelência no serviço.
+            No Brasil, o Shopping de Cruzeiros é o parceiro oficial da Azamara, a sua porta de entrada para navegar com uma das companhias mais premiadas do mundo quando o assunto é hospitalidade e excelência no serviço.
           </p>
 
           <div className="Azamara-features">
