@@ -20,5 +20,5 @@ const SendMailBudget = ( formData )=> {
     )
 }
 
-export{SendMailContact,SendMailBudget}
+export {SendMailContact,SendMailBudget}
 

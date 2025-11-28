@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import "../promo.css";
-import SendMailBudget from '../../../services/SendMail'
+import {SendMailBudget} from '../../../services/SendMail'
 
 export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
 

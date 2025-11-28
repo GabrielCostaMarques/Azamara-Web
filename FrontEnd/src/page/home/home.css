@@ -94,10 +94,15 @@
 
 
 
-.home .promo-sub,
+.home .promo-sub{
+  font-size: 1.7rem;
+    color: #fff;
+  font-weight: bold;
+
+}
 .home .promo-timer {
   color: #fff;
-  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .home .promo-title {
