@@ -151,7 +151,7 @@ export default function SidebarForm({ sidebarOpen, setSidebarOpen, offer }) {
           </div>
 
           <button type="submit" className="orcamento-btn full">
-            ENVIAR ORÇAMENTO
+            SOLICITE SUA RESERVA
           </button>
         </form>
       </div>

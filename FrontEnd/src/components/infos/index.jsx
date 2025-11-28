@@ -26,7 +26,7 @@ export default function AzamaraSection() {
           </p>
 
           <p>
-            No Brasil, o Shopping de Cruzeiros é o parceiro oficial da Azamara, a sua porta de entrada para navegar com uma das companhias mais premiadas do mundo quando o assunto é hospitalidade e excelência no serviço.
+            No Brasil, a R11 Travel é o parceiro oficial da Azamara, a sua porta de entrada para navegar com uma das companhias mais premiadas do mundo quando o assunto é hospitalidade e excelência no serviço.
           </p>
 
           <div className="Azamara-features">

@@ -112,7 +112,7 @@ const DestinyCruiseSection = () => {
                     <div className="rc-content">
                         <h1 className="rc-title">EXPLORE NOSSOS DESTINOS</h1>
                         <p className="rc-description">
-                            Dos mares do Caribe às paisagens da Europa, descubra destinos inesquecíveis com a Azamara Cruises.
+                            Desfrute de cruzeiros para 2027–2028, em itinerários ao redor do globo. Aproveite as praias do Caribe, a história da Europa ou as belas paisagens do Alasca. Pensamos em tudo para proporcionar viagens mais profundas e uma imersão no destino. Com estadias prolongadas e itinerários personalizados, descubra o mundo além do convencional.
                         </p>
                     </div>
                 </div>

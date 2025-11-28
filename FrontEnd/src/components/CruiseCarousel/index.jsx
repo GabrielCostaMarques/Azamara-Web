@@ -17,24 +17,24 @@ const AzamaraCruiseSection = () => {
 
   const cruiseShips = [
     {
-      title: 'Azamara Pursuit',
+      title: 'Azamara Pursuit®',
       port: '', image: PursuitImg,
-      description: 'O Azamara Pursuit oferece uma experiência íntima com capacidade para 690 hóspedes. Projetado para explorar destinos únicos, combina luxo e conforto em um ambiente acolhedor.',
+      description: 'O lançamento do Azamara Pursuit em 2018 abriu os mares para novos itinerários e a oportunidade de proporcionar aos nossos hóspedes experiências mais exclusivas e imersivas do que nunca.'
     },
     {
-      title: 'Azamara Journey',
+      title: 'Azamara Journey®',
       port: '', image: JourneyImg,
-      description: 'Um clássico renovado, o Azamara Journey é perfeito para cruzeiros prolongados em portos exclusivos. Seu design elegante e serviço personalizado encantam os viajantes mais exigentes.',
+      description: 'O Azamara Journey é um luxuoso hotel boutique no mar, um navio de porte médio com um layout de decks intimista, porém nunca lotado, que oferece tudo o que os cruzeiristas modernos procuram, além de alguns extras inesperados.',
     },
     {
-      title: 'Azamara Onward',
+      title: 'Azamara Onward℠',
       port: '', image: OnwardImg,
-      description: 'O mais novo da frota, o Azamara Onward eleva o padrão com espaços modernos, gastronomia refinada e itinerários que permitem estadias mais longas nos destinos.',
+      description: 'Construído para cruzar oceanos, navegar por lugares panorâmicos e atracar em locais inacessíveis a navios maiores, esta experiência de cruzeiro em navio de pequeno porte é incomparável.',
     },
     {
-      title: 'Azamara Quest',
+      title: 'Azamara Quest®',
       port: '', image: QuestImg,
-      description: 'Conhecido por sua sofisticação, o Azamara Quest oferece suítes espaçosas, spas de alto nível e experiências culturais imersivas em cada parada.',
+      description: 'O Azamara Quest é um navio de porte médio com um layout de convés que é intimista, mas nunca lotado, e oferece tudo o que os cruzeiristas modernos procuram, além de alguns extras inesperados.',
     },
   ];
 
