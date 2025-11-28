@@ -141,3 +141,40 @@
     text-align: center;
   }
 }
+
+/*style link politica privacidade*/
+.link-politica-privacidade{
+  color: #a0d8ef;
+  background:none;
+  font-size: 1em;
+  text-decoration: none;
+}
+.link-politica-privacidade:hover{
+  color: white;
+  text-decoration: underline;
+}
+
+/*style popup politica privacidade*/
+
+.text-content{
+  max-height: 500px;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+
+.popup-content-politica {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease;
+  text-align: left;
+  font-family: "brandon-grotesque", sans-serif;
+}
+
+.popup-content-politica svg {
+  transform: scaleX(-1);
+}

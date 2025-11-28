@@ -2,9 +2,19 @@ import './Footer.css';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
 import Logo from "../../assets/Azamara-color.png"
 import R11 from "../../assets/R11.png"
+import { PoliticaPrivacidadePopup } from './Popup/PoliticaPrivacidadePopup';
+import { useState } from 'react';
 
 const Footer = () => {
+
+      const [popup, setPopup] = useState(null);
+
+      const openPopup = (type) => setPopup(type);
+      const closePopup = () => setPopup(null);
+
+
   return (
+    <>
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-logos">
@@ -33,7 +43,7 @@ const Footer = () => {
         <div className="footer-links">
           <h3>Documentos</h3>
           <a href="public/data/Condicoes-GeraisAzamara-Cruises.pdf" target='_blank'>Condições Gerais</a>
-          <a href="https://r11travel.com.br/politica-de-privacidade/">Política de Privacidade</a>
+          <button className="link-politica-privacidade" onClick={()=>openPopup('politica')}>Política de Privacidade</button>
         </div>
         <div className="footer-links">
           <h3>Agentes de Viagem </h3>
@@ -52,7 +62,10 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+      {popup == 'politica' && <PoliticaPrivacidadePopup closePopup={closePopup}/>}
+      </>
   );
+
 };
 
 export default Footer;
