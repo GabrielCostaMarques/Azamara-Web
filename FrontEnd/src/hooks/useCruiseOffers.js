@@ -7,7 +7,6 @@ export function useCruiseOffers() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Carrega TODOS os dados apenas uma vez
   useEffect(() => {
     const fetchOffers = async () => {
       try {

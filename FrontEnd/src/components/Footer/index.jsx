@@ -60,7 +60,7 @@ const Footer = () => {
           <p>© 2025 R11 Travel. Todos os Direitos Reservados.</p>
           <div className="footer-social">
             <a href="https://www.instagram.com/azamaracruisesbrasil/" aria-label="Instagram"><FaInstagram /></a>
-            <a href="mailto:contato@shoppingdecruzeiros.com.br" aria-label="Email"><FaEnvelope /></a>
+            <a href="mailto:concierge@r11travel.com.br" aria-label="Email"><FaEnvelope /></a>
           </div>
         </div>
       </footer>

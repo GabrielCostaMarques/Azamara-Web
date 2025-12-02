@@ -1,6 +1,6 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 import { useState, useEffect } from 'react';
-import { useToast } from '../../utils/Toast/ToastContext'; // ajuste o caminho
+import { useToast } from '../../utils/Toast/ToastContext';
 import "./FormSubscribe.css"
 
 export const NewsletterForm = () => {
@@ -56,7 +56,7 @@ const CustomForm = ({ status, message, onValidated }) => {
         disabled={status === "sending"}
       />
       <button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Carregando..." : "Inscrever"}
+        {status === "sending" ? "Carregando..." : "Inscreva-se"}
       </button>
     </form>
   );
