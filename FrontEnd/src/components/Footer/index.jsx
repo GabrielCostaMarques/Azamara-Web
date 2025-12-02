@@ -44,7 +44,7 @@ const Footer = () => {
 
           <div className="footer-links">
             <h3>Documentos</h3>
-            <a href="public/data/Condicoes-GeraisAzamara-Cruises.pdf" target='_blank'>Condições Gerais</a>
+            <a href="data/Condicoes-GeraisAzamara-Cruises.pdf" target='_blank'>Condições Gerais</a>
             <button className="link-politica-privacidade" onClick={() => openPopup('politica')}>Política de Privacidade</button>
           </div>
           <div className="footer-links">
