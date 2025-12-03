@@ -21,14 +21,14 @@ export default function CruiseBooking({ customClass = "" }) {
     const filter = location.state?.searchData;
 
     useEffect(() => {
-    if (loading==false) {
+        if (loading == false) {
 
-      const element = document.querySelector(location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [location,loading]);
+            const element = document.querySelector(location.hash);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [location, loading]);
 
 
     const {
@@ -84,9 +84,13 @@ export default function CruiseBooking({ customClass = "" }) {
                     </div>
 
                     <PromoBanner
-                        title="Black Friday"
-                        subtitle1="Até U$4000 de desconto*"
-                        subtitle2="+ Até U$500 de crédito a bordo*"
+                        title={
+                            <>
+                                ATÉ U$500<br />DE CRÉDITO A BORDO*
+                            </>
+                        }
+                        subtitle1="Aproveite a oferta de crédito a bordo em saídas selecionadas"
+                        subtitle2=""
                         endDate="2025-12-03T01:59:59"
                     />
 

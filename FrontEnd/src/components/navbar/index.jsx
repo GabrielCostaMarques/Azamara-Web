@@ -28,7 +28,7 @@ export default function Navbar({ customClass = "" }) {
             <li><a href="#quem-somos" onClick={() => setOpen(false)}>Quem Somos</a></li>
           </ul>
 
-          <button className="fale-conosco" onClick={() =>{ setOpen(false), window.location.href='tel:+5511999999999'}}>
+          <button className="fale-conosco" onClick={() =>{ setOpen(false), window.location.href='tel:+551147609317'}}>
             Fale com nossos Concierges (11) 4760-9317
           </button>
         </div>

@@ -29,9 +29,13 @@ export default function Home() {
           {/* <h1>Cruzeiros Azamara Cruises</h1>
           <p>Viaje além do itinerário. Viva o destino.</p> */}
           <PromoBanner
-            title="Black Friday"
-            subtitle1="Até U$4000 de desconto*"
-            subtitle2="+ Até U$500 de crédito a bordo*"
+            title={
+              <>
+                ATÉ U$500<br />DE CRÉDITO A BORDO*
+              </>
+            }
+            subtitle1="Aproveite a oferta de crédito a bordo em saídas selecionadas"
+            subtitle2=""
             endDate="2025-12-03T01:59:59"
             customClass="home"
           />

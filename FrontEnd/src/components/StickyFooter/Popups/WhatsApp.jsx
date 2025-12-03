@@ -9,7 +9,7 @@ export const WhatsAppPopup = ({ closePopup }) => {
         e.preventDefault();
         setSent(true);
         setTimeout(() => {
-            window.open(`https://wa.me/5511999999999?text=Olá! Quero falar sobre cruzeiros. Meu e-mail: ${encodeURIComponent(email)}`, '_blank');
+            window.open(`https://wa.me/5511975608520?text=Olá! Quero falar sobre cruzeiros. Meu e-mail: ${encodeURIComponent(email)}`, '_blank');
         }, 800);
     };
 

@@ -27,21 +27,31 @@ export default function PromoBanner({ title, subtitle1, subtitle2, endDate, cust
     return () => clearInterval(countdown);
   }, [endDate]);
 
-  if (timeLeft === null) return null;
+  const hasTimer =
+    timeLeft &&
+    Object.values(timeLeft).every(
+      (v) => v !== null && v !== undefined && v !== ""
+    );
 
   return (
-    <div className={`promo-banner-lp ${customClass}`}>
-      <h2 className="promo-title">{title}</h2>
-      <p className="promo-sub">{subtitle1}</p>
-      <p className="promo-sub">{subtitle2}</p>
-      <div className="promo-divider"></div>
+<div className={`promo-banner-lp ${customClass}`}>
+      {title && <h2 className="promo-title">{title}</h2>}
 
-      <p className="promo-timer">
-        Termina em{" "}
-        <strong>
-          {timeLeft.days} dias {timeLeft.hours} horas {timeLeft.minutes} minutos {timeLeft.seconds} segundos
-        </strong>
-      </p>
+      {subtitle1 && <p className="promo-sub">{subtitle1}</p>}
+      {subtitle2 && <p className="promo-sub">{subtitle2}</p>}
+
+      {(subtitle1 || subtitle2) && <div className="promo-divider"></div>}
+
+      {hasTimer && (
+        <p className="promo-timer">
+          Termina em{" "}
+          <strong>
+            {timeLeft.days} dias {timeLeft.hours} horas{" "}
+            {timeLeft.minutes} minutos {timeLeft.seconds} segundos
+          </strong>
+        </p>
+      )}
     </div>
+
   );
 }
