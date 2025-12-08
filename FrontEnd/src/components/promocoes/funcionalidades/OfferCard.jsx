@@ -34,7 +34,7 @@ export default function OfferCard({ offer, onDetails, onBudget }) {
               <span className="price">{offer.priceX}</span>
               <div className="discount-badge">
                 <span className="discount-label">MELHOR PREÇO</span>
-                <span className="discount-value">{offer.discount}</span>
+                {/* <span className="discount-value">{offer.discount}</span> */}
               </div>
             </div>
             <span className="per-person">

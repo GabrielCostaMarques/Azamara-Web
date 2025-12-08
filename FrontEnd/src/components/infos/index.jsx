@@ -36,11 +36,11 @@ export default function AzamaraSection() {
               <p>Em até 10x sem juros na Azamara </p>
             </div>
 
-            <div className="feature">
+            {/* <div className="feature">
               <Wallet size={28} />
               <h4>SEM ENTRADA</h4>
               <p>Não cobramos entrada em nossos orçamentos</p>
-            </div>
+            </div> */}
 
             <div className="feature">
               <Percent size={28} />

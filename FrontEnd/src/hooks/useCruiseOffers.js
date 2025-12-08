@@ -13,6 +13,8 @@ export function useCruiseOffers() {
         setLoading(true);
         const data = await getCruises();
 
+        console.log(data);
+        
         const now = new Date();
         const valid = data
           .filter((o) => o.Available === "OK" && new Date(o.EmbarkDate) > now)

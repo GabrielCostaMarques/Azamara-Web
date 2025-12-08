@@ -87,7 +87,7 @@ const {
           alt="Sem juros"
           className="promo-icon"
         />
-        <span>Sem entrada e em 10x sem juros</span>
+        <span>Em 10x sem juros</span>
       </div>
 
       <div className="offers-container">
