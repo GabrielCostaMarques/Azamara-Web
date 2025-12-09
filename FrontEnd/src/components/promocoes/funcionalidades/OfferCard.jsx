@@ -6,9 +6,12 @@ export default function OfferCard({ offer, onDetails, onBudget }) {
       <div className="card-image">
         <img src={offer.image} alt={offer.title} loading="lazy" />
         <span className="category-badge">{offer.category}</span>
+        
       </div>
 
       <div className="card-content">
+        <p className="title-duration">{offer.nights} NOITES</p>
+        
         <h3>{offer.title}</h3>
 
         <div className="info-item">

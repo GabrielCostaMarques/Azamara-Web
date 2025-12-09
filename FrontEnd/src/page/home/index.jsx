@@ -31,12 +31,12 @@ export default function Home() {
           <PromoBanner
             title={
               <>
-                ATÉ U$500<br />DE CRÉDITO A BORDO*
+                ATÉ U$1000<br />DE CRÉDITO A BORDO*
               </>
             }
             subtitle1="Aproveite a oferta de crédito a bordo em saídas selecionadas"
             subtitle2=""
-            endDate="2025-12-03T01:59:59"
+            endDate="2025-03-31T01:59:59"
             customClass="home"
           />
         </div>

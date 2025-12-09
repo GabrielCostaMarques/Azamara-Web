@@ -86,7 +86,7 @@ export default function CruiseBooking({ customClass = "" }) {
                     <PromoBanner
                         title={
                             <>
-                                ATÉ U$500<br />DE CRÉDITO A BORDO*
+                                ATÉ U$1000<br />DE CRÉDITO A BORDO*
                             </>
                         }
                         subtitle1="Aproveite a oferta de crédito a bordo em saídas selecionadas"
