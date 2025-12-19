@@ -8,7 +8,7 @@ import Footer from "../../components/Footer"
 import StickyFooter from "../../components/StickyFooter"
 import AlwaysInclude from "../../components/AlwaysInclude";
 import bannerDesk from "../../assets/Banners/Banner Azamara Desktop_1600x850.jpg";
-import bannerMobile from "../../assets/Banners/banner-Mobile-azamara.webp";
+import bannerMobile from "../../assets/Banners/banner-mobile-azamara-promo.webp";
 import CruiseFormV2 from "../../components/Motorv2";
 import PromoBanner from "../../components/ResultPage/PromoBanner";
 import "./home.css";
